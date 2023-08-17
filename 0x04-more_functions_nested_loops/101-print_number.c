@@ -11,7 +11,7 @@ int sizeofnumber(int n)
 {
 	int i;
 
-	for (i = 1; i < n * 10; i *= 10)
+	for (i = 1; i <= n * 10; i *= 10)
 	{
 		if (n / i == 0)
 		{
