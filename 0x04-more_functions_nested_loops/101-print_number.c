@@ -11,14 +11,13 @@ int sizeofnumber(int n)
 {
 	int i;
 
-	for (i = 1; i <= n * 10; i *= 10)
+	i = 1;
+	while (n >= 10)
 	{
-		if (n / i == 0)
-		{
-			return (i / 10);
-		}
+		i *= 10;
+		n /= 10;
 	}
-	return (1);
+	return (i);
 }
 /**
  * print_number - Entry point
@@ -34,7 +33,7 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		n = n * -1;
+		n *= -1;
 	}
 
 	newnu = n;
