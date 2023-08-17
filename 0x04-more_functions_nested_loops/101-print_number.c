@@ -7,9 +7,9 @@
  * Return: size or 10 (success)
  */
 
-int sizeofnumber(int n)
+unsigned int sizeofnumber(int n)
 {
-	int i;
+	unsigned int i;
 
 	i = 1;
 	while (n >= 10)
@@ -28,18 +28,21 @@ int sizeofnumber(int n)
 
 void print_number(int n)
 {
-	int size, newnu;
+	unsigned int size, newnu;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n *= -1;
+		n /= -1;
 	}
 
 	newnu = n;
-	for (size = sizeofnumber(n); size >= 1; size /= 10)
+	size = sizeofnumber(n);
+
+	while (size > 0)
 	{
 		_putchar(newnu / size + '0');
 		newnu = newnu % size;
+		size /= 10;
 	}
 }
