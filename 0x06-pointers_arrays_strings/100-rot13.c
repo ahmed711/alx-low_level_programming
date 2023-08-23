@@ -12,7 +12,7 @@ char *rot13(char *a)
 	int i;
 	char *s;
 
-	s = "NOPQRSTUVWXYZABCDEFGHIJKLM......nopqrstuvwxyzabcdefghikklm";
+	s = "NOPQRSTUVWXYZABCDEFGHIJKLM......nopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; a[i] != '\0'; i++)
 	{
