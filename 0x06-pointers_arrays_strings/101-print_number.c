@@ -8,7 +8,7 @@
  * Return: size or 10 (success)
  */
 
-int sizeofnumber(int n)
+int sizeofnumber(unsigned int n)
 {
 	unsigned int i;
 
@@ -29,23 +29,19 @@ int sizeofnumber(int n)
 
 void print_number(int n)
 {
-	int size, newnu;
+	unsigned int size, newnu;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		if (n == INT_MIN)
-		{
-			n = INT_MAX;
-		}
-		else
-		{
-			n /= -1;
-		}
+		newnu = n * -1;
+	}
+	else
+	{
+		newnu = n;
 	}
 
-	newnu = n;
-	size = sizeofnumber(n);
+	size = sizeofnumber(newnu);
 
 	while (size > 0)
 	{
