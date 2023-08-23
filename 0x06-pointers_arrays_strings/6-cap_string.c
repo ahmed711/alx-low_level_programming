@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdbool.h>
 
 /**
  * cap_string - Entry point
@@ -10,22 +9,27 @@
 
 char *cap_string(char *a)
 {
-	int i;
-	bool prev_alpha_up, prev_alpha_low, prev_numeric;
+	int i, j;
+	char *sep;
+
+	sep = " \t\n,;.!?\"(){}";
 
 	for (i = 0; a[i] != '\0'; i++)
 	{
-		prev_alpha_up = a[i - 1] >= 'A' && a[i - 1] <= 'Z';
-		prev_alpha_low = a[i - 1] >= 'a' && a[i - 1] <= 'z';
-		prev_numeric = (a[i - 1] >= '0' && a[i - 1] <= '9');
-
-		if (i != 0 && (prev_alpha_up || prev_alpha_low || prev_numeric))
+		if (!i)
 		{
-			continue;
+			if (a[i] >= 'a' && a[i] <= 'z')
+			{
+				a[i] -= 32;
+			}
 		}
-		else if (a[i] >= 'a' && a[i] <= 'z')
+		else
 		{
-			a[i] -= 32;
+			for (j = 0; sep[j] != '\0'; j++)
+				if (a[i - 1] == sep[j] && a[i] >= 'a' && a[i] <= 'z')
+				{
+					a[i] -= 32;
+				}
 		}
 	}
 	return (a);
