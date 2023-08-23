@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * sizeofnumber - Entry
@@ -7,7 +8,7 @@
  * Return: size or 10 (success)
  */
 
-unsigned int sizeofnumber(int n)
+int sizeofnumber(int n)
 {
 	unsigned int i;
 
@@ -28,12 +29,19 @@ unsigned int sizeofnumber(int n)
 
 void print_number(int n)
 {
-	unsigned int size, newnu;
+	int size, newnu;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n /= -1;
+		if (n == INT_MIN)
+		{
+			n = INT_MAX;
+		}
+		else
+		{
+			n /= -1;
+		}
 	}
 
 	newnu = n;
