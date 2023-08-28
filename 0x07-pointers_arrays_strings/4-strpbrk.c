@@ -1,8 +1,7 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * _strchr - Entry point
+ * _strpbrk - Entry point
  * @s: string s
  * @accept: string accept
  * Description: 'find c in s'
@@ -11,8 +10,7 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, j, k, l, flag;
-	char *p;
+	unsigned int i, j, l, flag;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -35,18 +33,5 @@ char *_strpbrk(char *s, char *accept)
 		}
 	}
 
-	if (j == i)
-	{
-		return (NULL);
-	}
-
-	p = (char *)malloc(i - j + 1);
-
-	for (k = 0; k < i - j; k++)
-	{
-		p[k] = s[k + j];
-	}
-	p[k] = '\0';
-
-	return (p);
+	return (i == j ? (void *)0 : s + j);
 }
