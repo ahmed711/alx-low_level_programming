@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * _strchr - Entry point
@@ -11,8 +10,7 @@
 
 char *_strchr(char *s, char c)
 {
-	unsigned int i, j, k;
-	char *p;
+	unsigned int i, j;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -25,18 +23,5 @@ char *_strchr(char *s, char c)
 			break;
 		}
 	}
-	if (j == i && c != '\0')
-	{
-		return (NULL);
-	}
-
-	p = (char *)malloc(i - j + 1);
-
-	for (k = 0; k < i - j; k++)
-	{
-		p[k] = s[k + j];
-	}
-	p[k] = '\0';
-
-	return (p);
+	return (i == j && c != '\0' ? (void *)0 : s + j);
 }
