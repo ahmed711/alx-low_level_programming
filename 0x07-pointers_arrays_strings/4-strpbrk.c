@@ -35,7 +35,7 @@ char *_strpbrk(char *s, char *accept)
 		}
 	}
 
-	if (j == i && accept[i] != '\0')
+	if (j == i)
 	{
 		return (NULL);
 	}
