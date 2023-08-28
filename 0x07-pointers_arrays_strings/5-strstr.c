@@ -20,11 +20,6 @@ char *_strstr(char *haystack, char *needle)
 	{
 	}
 
-	if (j > i)
-	{
-		return ((void *)0);
-	}
-
 	count = 0;
 	for (k = 0; k < i - j + 1; k++)
 	{
@@ -46,5 +41,5 @@ char *_strstr(char *haystack, char *needle)
 		}
 	}
 
-	return ((void *)0);
+	return ('\0');
 }
