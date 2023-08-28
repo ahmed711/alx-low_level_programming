@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * _strstr - Entry point
@@ -20,9 +21,9 @@ char *_strstr(char *haystack, char *needle)
 	{
 	}
 
-	count = 0;
 	for (k = 0; k < i - j + 1; k++)
 	{
+		count = 0;
 		for (l = 0; needle[l] != '\0'; l++)
 		{
 			if (haystack[k + l] == needle[l])
@@ -35,11 +36,10 @@ char *_strstr(char *haystack, char *needle)
 			}
 			else
 			{
-				count = 0;
 				break;
 			}
 		}
 	}
 
-	return ('\0');
+	return (NULL);
 }
