@@ -27,30 +27,19 @@ void free_mem(char **s, int j)
 
 int count_words(char *str)
 {
-	int i, start, words;
+	int i, words;
 
-	i = 0, start = 0, words = 0;
-	while (1)
+	i = 1,  words = 1;
+	while (str[i] != '\0')
 	{
-		while (str[i] == ' ')
-		{
-			start = 1;
-			i++;
-		}
-
-		if (str[i] == '\0')
-		{
-			break;
-		}
-
-		if (start)
-		{
+		if (str[i - 1] == ' ')
 			words += 1;
-			start = 0;
-		}
+
 		i++;
+		while (str[i] == ' ')
+			i++;
 	}
-	return (str[0] != ' ' ? words + 1 : words);
+	return (words);
 }
 
 /**
@@ -72,7 +61,7 @@ char **strtow(char *str)
 	if (!str || str[i] == '\0')
 		return (NULL);
 
-	words = count_words(str);
+	words = count_words(str + i);
 	s = malloc((words + 1) * sizeof(char *));
 	start = i;
 	while (1)
